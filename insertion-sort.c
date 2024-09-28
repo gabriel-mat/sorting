@@ -4,30 +4,32 @@
 
 int main(){
   int array[MAX_SIZE];
-  int size, swap;
-
+  int size, value, hole;
+  
   printf("array size > ");
   scanf("%d", &size);
 
-  printf("insert the array > ");
-
+  printf("array: ");
   for(int i = 0; i < size; i++)
     scanf("%d", &array[i]);
 
   for(int i = 0; i < size; i++){
-    for(int j = 0; j < size - i - 1; j++){
-      if(array[j] > array [j+1]){
-        swap = array[j];
-        array[j] = array[j+1];
-        array[j+1] = swap;
-      }
+    value = array[i];
+    hole = i;
+
+    while(hole > 0 && array[hole - 1] > value){
+      array[hole] = array[hole - 1];
+      hole--;
     }
+
+    array[hole] = value; 
   }
-  
-  printf("sorted array > ");
+
+  printf("sorted array: ");
+
   for(int i = 0; i < size; i++)
     printf("%d ", array[i]);
   printf("\n");
 
-return 0;
+  return 0;
 }
