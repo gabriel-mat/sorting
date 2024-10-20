@@ -9,6 +9,11 @@ int main() {
   printf("array size > ");
   scanf("%d", &size);
 
+  if (size < 1) {
+    printf("the number of elements must be greater than 1!\n");
+    return 0;
+  }
+
   printf("complete the array > ");
 
   for (int i = 0; i < size; i++)
@@ -32,6 +37,8 @@ int main() {
     array[min_position] = swap;
   }
 
+  printf("sorted array > ");
+  
   for (int i = 0; i < size; i++)
     printf("%d ", array[i]);
 
